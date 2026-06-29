@@ -104,7 +104,7 @@ const ex={
 
 function el(id){return document.getElementById(id)}
 function q(id){return Number(el(id).value||0)}
-function num(value){return Number(String(value||'').replace(',','.'))}
+function num(value){const normalized=String(value??'').trim().replace(',','.');return normalized===''?NaN:Number(normalized)}
 function kg(lb){return lb*.45359237}
 function roundNearest(x,s){return Math.round(x/s)*s}
 function roundDown(x,s){return Math.floor((x+1e-9)/s)*s}
